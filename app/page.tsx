@@ -24,6 +24,10 @@ export default function PlaySyncComingSoon() {
     x: 0,
     y: 0,
   });
+  const [windowSize, setWindowSize] = useState({
+    width: 0,
+    height: 0,
+  });
   const [configValid, setConfigValid] = useState(false);
 
   const {
@@ -51,12 +55,25 @@ export default function PlaySyncComingSoon() {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
     window.addEventListener("mousemove", handleMouseMove);
-    return () =>
+    window.addEventListener("resize", handleResize);
+    // Set initial window size
+    handleResize();
+
+    return () => {
       window.removeEventListener(
         "mousemove",
         handleMouseMove
       );
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -119,16 +136,16 @@ export default function PlaySyncComingSoon() {
           style={{
             left:
               mousePosition.x -
-              (window.innerWidth < 640
+              (windowSize.width < 640
                 ? 96
-                : window.innerWidth < 768
+                : windowSize.width < 768
                 ? 144
                 : 192),
             top:
               mousePosition.y -
-              (window.innerWidth < 640
+              (windowSize.width < 640
                 ? 96
-                : window.innerWidth < 768
+                : windowSize.width < 768
                 ? 144
                 : 192),
           }}
