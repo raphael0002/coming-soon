@@ -123,17 +123,13 @@ export default function PlaySyncComingSoon() {
 
       {/* Header */}
       <header
-        className={`pt-8 pb-4 relative z-10 transition-all duration-1000 ${
-          isLoaded
-            ? "translate-y-0 opacity-100"
-            : "-translate-y-10 opacity-0"
-        }`}
+        className={`pt-2 pb-2 relative z-10 transition-all duration-1000 `}
       >
         <div className="flex justify-center items-center">
-          <div className="flex items-center space-x-3 group cursor-pointer">
-            <div className="w-16 h-16 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+          <div className="flex items-center space-x-3 cursor-pointer">
+            <div className="w-42 h-42">
               <Image
-                src="/logo.svg"
+                src="/logo-cs3.svg"
                 alt="PlaySync"
                 width={64}
                 height={64}
@@ -157,18 +153,18 @@ export default function PlaySyncComingSoon() {
                   : "translate-y-full opacity-0"
               }`}
             >
-              <span className="inline-block animate-text-shimmer bg-gradient-to-r from-green-600 via-green-400 to-green-600 dark:from-green-500 dark:via-green-300 dark:to-green-500 bg-[length:200%_100%] bg-clip-text text-transparent">
-                Coming
+              <span className="inline-block font-bold animate-text-shimmer bg-gradient-to-r from-[#7ac143] via-green-500 to-[#7ac143]  dark:from-green-500 dark:via-green-300 dark:to-green-500 bg-[length:200%_100%] bg-clip-text text-transparent">
+                COMING
               </span>
               <br />
               <span
-                className={`inline-block transition-all duration-1500 delay-500 ${
+                className={`inline-block font-bold transition-all duration-1500 delay-500 ${
                   isLoaded
                     ? "translate-y-0 opacity-100"
                     : "translate-y-full opacity-0"
                 }`}
               >
-                Soon
+                SOON
               </span>
             </h1>
           </div>
@@ -224,7 +220,7 @@ export default function PlaySyncComingSoon() {
                     onChange={(e) =>
                       setEmail(e.target.value)
                     }
-                    className="flex-1 h-12 border-0 rounded-full px-6 text-base focus:ring-0 bg-transparent placeholder:text-gray-400 dark:placeholder:text-gray-500 transition-all duration-300"
+                    className="flex-2 h-12 border-0 rounded-full px-6 text-base focus:ring-0 bg-transparent placeholder:text-gray-400 dark:placeholder:text-gray-500 transition-all duration-300"
                     required
                     disabled={isLoading || !configValid}
                   />
@@ -235,7 +231,7 @@ export default function PlaySyncComingSoon() {
                       !email.trim() ||
                       !configValid
                     }
-                    className="h-12 px-8 bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white rounded-full font-medium transition-all duration-300 hover:scale-105 disabled:scale-100 disabled:opacity-50 group relative overflow-hidden"
+                    className="h-12 px-8 bg-[#7ac143] hover:bg-green-500 dark:bg-[#7ac143] dark:hover:bg-green-600 text-white rounded-full font-medium transition-all duration-300 hover:scale-105 disabled:scale-100 disabled:opacity-50 group relative overflow-hidden"
                   >
                     <span
                       className={`transition-all duration-300 ${
@@ -300,23 +296,25 @@ export default function PlaySyncComingSoon() {
 
       {/* Footer with Slide-up Animation */}
       <footer
-        className={`pb-8 pt-16 relative z-10 transition-all duration-1000 delay-1300 ${
+        className={`pb-8 pt-8 relative z-10 transition-all duration-1000 delay-1300 ${
           isLoaded
             ? "translate-y-0 opacity-100"
             : "translate-y-10 opacity-0"
         }`}
       >
-        <div className="text-center mb-8">
+        <div className="text-center mb-8 flex flex-col items-center justify-center space-y-2">
           <p className="text-xs text-gray-500 dark:text-gray-400 font-medium tracking-wide uppercase animate-fade-in">
             Crafted with precision
-            <br />
-            <span className="bg-gradient-to-r from-green-600 to-green-400 dark:from-green-500 dark:to-green-300 bg-clip-text text-transparent">
-              Play Sync
-            </span>
           </p>
+          <Image
+            src="/logo-cs1.jpg"
+            alt="Play Sync Logo"
+            width={40}
+            height={40}
+          />
         </div>
 
-        <div className="flex justify-between items-center px-8 max-w-6xl mx-auto">
+        <div className="flex flex-col space-y-4  md:flex-row justify-between items-center px-8 max-w-6xl mx-auto">
           <div className="flex space-x-8">
             {["Careers", "Privacy Policy", "Contact"].map(
               (item, index) => (
@@ -344,7 +342,7 @@ export default function PlaySyncComingSoon() {
 
             <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide ml-4 animate-pulse">
               Current Status:{" "}
-              <span className="text-green-600 dark:text-green-400 font-medium">
+              <span className="text-[#7ac143] dark:text-[#7ac143] font-medium">
                 Stealth
               </span>
             </div>
